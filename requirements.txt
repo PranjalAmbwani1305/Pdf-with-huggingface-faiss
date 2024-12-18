@@ -1,6 +1,6 @@
 fpdf
 PyPDF2
-hugging hub
+huggingface hub
 transformers
 torch
 faiss-cpu
