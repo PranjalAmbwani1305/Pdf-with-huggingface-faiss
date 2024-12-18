@@ -23,8 +23,13 @@ def extract_text_from_pdf(pdf_path):
             text += page.extract_text()
     return text
 
-tokenizer = AutoTokenizer.from_pretrained("distilbert-base-nli-stsb-mean-tokens")
-model = AutoModel.from_pretrained("distilbert-base-nli-stsb-mean-tokens")
+try:
+    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-nli-stsb-mean-tokens")
+    model = AutoModel.from_pretrained("distilbert-base-nli-stsb-mean-tokens")
+except Exception as e:
+    st.error(f"Error loading Hugging Face model: {e}")
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+    model = AutoModel.from_pretrained("bert-base-uncased")
 
 def generate_embeddings(text):
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
