@@ -24,8 +24,8 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 try:
-    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-nli-stsb-mean-tokens")
-    model = AutoModel.from_pretrained("distilbert-base-nli-stsb-mean-tokens")
+    tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+    model = AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
 except Exception as e:
     st.error(f"Error loading Hugging Face model: {e}")
     tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
