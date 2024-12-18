@@ -82,10 +82,6 @@ def main():
         else:
             st.write("Please upload a PDF first.")
 
-    if st.button("Generate Sample PDF"):
-        pdf_file = create_pdf("example.pdf")
-        st.write("Sample PDF created!")
-        st.download_button("Download Sample PDF", pdf_file)
-
+   
 if __name__ == "__main__":
     main()
